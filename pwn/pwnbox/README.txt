@@ -1,0 +1,1 @@
+所有Exploit程式碼(solve.py)都放在題目下的share目錄裡面。
